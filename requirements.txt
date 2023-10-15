@@ -1,0 +1,6 @@
+PyAudio
+SpeechRecognition
+gtts
+googletrans==3.1.0a0
+pygame
+keyboard
