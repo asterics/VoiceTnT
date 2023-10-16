@@ -1,5 +1,5 @@
 # VoiceTnT.py
-# a tool for transation and dictation of live speech
+# a tool for translation and dictation of live speech
 # for instructions see ReadMe.md
 
 import speech_recognition as sr

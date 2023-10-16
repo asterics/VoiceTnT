@@ -16,7 +16,7 @@ In keyboard mode, the recognized phrase is typed via keyboard emulation (so that
 The default mode is translation.
 
 
-The hotkeys are stored in the textfile `hotkeys.txt`. New hotkeys can be recorded used commandline argument ´-r´ (see below).
+The hotkeys are stored in the textfile `hotkeys.txt`. New hotkeys can be recorded by using commandline argument ´-r´ (see below).
 The default hotkeys are `Alt+1`,`Alt+2` and `Alt+3`.
 
 
