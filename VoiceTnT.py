@@ -37,15 +37,18 @@ def play(fileName):
 
 def speakNow (msg, loc):
     global count
-    speech = gTTS(text=msg, lang=loc)  # converts text to speech
-    # save the audio to a temporary file
-    # Note: as pygame mixer doesn't close the file properly, two alternating files are used
-    speech_file = f'./data/speech{count%2}.mp3'
-    count += 1
-    speech.save(speech_file)    
-    play(speech_file)
-    while pygame.mixer.music.get_busy():
-        pygame.time.Clock().tick(10)
+    try:
+        speech = gTTS(text=msg, lang=loc)  # converts text to speech
+        # save the audio to a temporary file
+        # Note: as pygame mixer doesn't close the file properly, two alternating files are used
+        speech_file = f'./data/speech{count%2}.mp3'
+        count += 1
+        speech.save(speech_file)    
+        play(speech_file)
+        while pygame.mixer.music.get_busy():
+            pygame.time.Clock().tick(10)
+    except:
+        print ("could not generate speech - please check language IDs!")
 
 def loadhotkey():
     global hotkey
@@ -93,6 +96,8 @@ def recognizeVoice():
             print('typing text ..')
             keyboard.write(recognizedText)
 
+    except ValueError:
+        print("language not supported - please check language ID.")
     except sr.UnknownValueError:
         print("Speech Recognition could not understand audio")
     except sr.RequestError as e:
