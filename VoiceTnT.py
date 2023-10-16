@@ -90,14 +90,15 @@ def recognizeVoice():
         print("I think you said: " + recognizedText)
         if keyboardMode == False:
             translation = translator.translate(recognizedText, src=inLanguage, dest=outLanguage)
-            print ("translated text: " + str(translation.text.encode("utf-8")))
+            print ("translated text: " + str(translation.text.encode("utf-8"))) 
+            #print ("translated text: " + translation.text)
             speakNow (translation.text, outLanguage)
         else:
             print('typing text ..')
             keyboard.write(recognizedText)
 
-    except ValueError:
-        print("language not supported - please check language ID.")
+#    except ValueError:
+#        print("language not supported - please check language ID.")
     except sr.UnknownValueError:
         print("Speech Recognition could not understand audio")
     except sr.RequestError as e:
